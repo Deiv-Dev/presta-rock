@@ -2,6 +2,7 @@
 
 namespace task_two;
 
+require_once '../helpers/ArrayHelpers.php';
 use helpers\ArrayHelpers;
 
 class SplitArrayIntoEqualGroups
@@ -34,5 +35,5 @@ $numbersToGroupEqually = [1, 2, 4, 7, 1, 6, 2, 8];
 $arrayHelpers = new ArrayHelpers();
 
 $splitArrayIntoEqualGroups = new SplitArrayIntoEqualGroups($numbersToGroupEqually, $numbersOfGroups, $arrayHelpers);
-$splitArrayIntoEqualGroups->getGroupsResult();
+$result = $splitArrayIntoEqualGroups->getGroupsResult();
 
