@@ -3,25 +3,35 @@
 namespace task_one;
 
 $array = include_once 'Array.php';
-require_once '../helpers/RearrangeArray.php';
+require_once '../helpers/ArrayHelpers.php';
 
-$keys = array_keys($array[0]);
+class TablePrinter
+{
+    private array $array;
 
-$newArray = \helpers\rearrangeArrayByKeys($array, $keys);
-
-// Print the table header
-echo "+-----------+-----------+-----------+-----------+\n";
-foreach ($keys as $key) {
-    printf("| %-10s", $key);
-}
-echo "|\n+-----------+-----------+-----------+-----------+\n";
-
-// Print the table rows
-foreach ($array as $element) {
-    foreach ($keys as $key) {
-        printf("| %-10s", $element[$key]);
+    public function __construct(array $array)
+    {
+        $this->array = $array;
     }
-    echo "|\n";
-}
-echo "+-----------+-----------+-----------+-----------+";
 
+    public function printTable()
+    {
+        $keys = array_keys($this->array[0]);
+
+        echo "+-----------+-----------+-----------+-----------+\n";
+        foreach ($keys as $key) {
+            printf("| %-10s", $key);
+        }
+        echo "|\n+-----------+-----------+-----------+-----------+\n";
+        foreach ($this->array as $element) {
+            foreach ($keys as $key) {
+                printf("| %-10s", $element[$key]);
+            }
+            echo "|\n";
+        }
+        echo "+-----------+-----------+-----------+-----------+";
+    }
+}
+
+$tablePrinter = new TablePrinter($array);
+$tablePrinter->printTable();
