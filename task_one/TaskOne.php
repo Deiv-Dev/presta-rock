@@ -3,7 +3,6 @@
 namespace task_one;
 
 $array = include_once 'Array.php';
-require_once '../helpers/ArrayHelpers.php';
 
 class TablePrinter
 {
