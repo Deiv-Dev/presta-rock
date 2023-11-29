@@ -3,6 +3,7 @@
 namespace task_two;
 
 require_once '../helpers/ArrayHelpers.php';
+require_once './index.php';
 use helpers\ArrayHelpers;
 
 class SplitArrayIntoEqualGroups
@@ -30,9 +31,14 @@ class SplitArrayIntoEqualGroups
     }
 }
 
-$numbersOfGroups = 3;
-$numbersToGroupEqually = [1, 2, 4, 7, 1, 6, 2, 8];
-$arrayHelpers = new ArrayHelpers();
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $numbersOfGroups = $_POST["number"];
+    $numbersToGroupEqually = [1, 2, 4, 7, 1, 6, 2, 8];
+    $arrayHelpers = new ArrayHelpers();
 
-$splitArrayIntoEqualGroups = new SplitArrayIntoEqualGroups($numbersToGroupEqually, $numbersOfGroups, $arrayHelpers);
-$result = $splitArrayIntoEqualGroups->getGroupsResult();
+    $splitArrayIntoEqualGroups = new SplitArrayIntoEqualGroups($numbersToGroupEqually, $numbersOfGroups, $arrayHelpers);
+    $result = $splitArrayIntoEqualGroups->getGroupsResult();
+
+    displayResult($result);
+    exit();
+}

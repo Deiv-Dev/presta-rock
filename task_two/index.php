@@ -8,12 +8,19 @@
 </head>
 
 <body>
+  <form action="TaskTwo.php" method="post">
+    <label for="number">Enter how many groups to split?</label>
+    <input type="text" name="number" id="number" required>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
   <?php
-  require_once './TaskTwo.php';
-
-  foreach ($result as $group) {
-    $sum = array_sum($group);
-    echo '<p>' . implode(',', $group) . " = $sum</p>";
+  function displayResult(array $result): void
+  {
+    foreach ($result as $group) {
+      $sum = array_sum($group);
+      echo '<p>' . implode(',', $group) . " = $sum</p>";
+    }
   }
   ?>
 </body>
