@@ -17,12 +17,19 @@ class ArrayHelpers
         $groups = array_fill(0, $numberOfGroups, []);
         $sums = array_fill(0, $numberOfGroups, 0);
 
-        foreach ($numbersToGroupEqually as $numbers) {
-            $minSumIndex = array_search(min($sums), $sums);
+        return $this->findSmallestArray($groups, $sums, $numbersToGroupEqually, 0);
+    }
 
-            $groups[$minSumIndex][] = $numbers;
-            $sums[$minSumIndex] += $numbers;
+    public function findSmallestArray(array $groups, array $sums, array $numbersToGroupEqually, int $indexOfNumber)
+    {
+        if ($indexOfNumber == count($numbersToGroupEqually)) {
+            return $groups;
         }
-        return $groups;
+
+        $minSumIndex = array_search(min($sums), $sums, true);
+        $groups[$minSumIndex][] = $numbersToGroupEqually[$indexOfNumber];
+        $sums[$minSumIndex] += $numbersToGroupEqually[$indexOfNumber];
+
+        return $this->findSmallestArray($groups, $sums, $numbersToGroupEqually, $indexOfNumber + 1);
     }
 }

@@ -8,20 +8,14 @@
 </head>
 
 <body>
-
   <?php
   require_once './TaskTwo.php';
 
-  // Get the result of splitIntoGroups
-  $result = \task_two\getGroupsResult();
-
-  // Print the result in the specified format
   foreach ($result as $group) {
     $sum = array_sum($group);
-    echo implode(',', $group) . " = $sum<br>";
+    echo '<p>' . implode(',', $group) . " = $sum</p>";
   }
   ?>
-
 </body>
 
 </html>

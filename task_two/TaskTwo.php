@@ -36,4 +36,3 @@ $arrayHelpers = new ArrayHelpers();
 
 $splitArrayIntoEqualGroups = new SplitArrayIntoEqualGroups($numbersToGroupEqually, $numbersOfGroups, $arrayHelpers);
 $result = $splitArrayIntoEqualGroups->getGroupsResult();
-
