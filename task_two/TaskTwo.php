@@ -25,7 +25,7 @@ class SplitArrayIntoEqualGroups
         try {
             return $this->arrayHelpers->splitArrayIntoGroups($this->numbersToGroupEqually, $this->numbersOfGroups);
         } catch (\InvalidArgumentException $e) {
-            echo 'Error: ' . $e->getMessage();
+            echo $e->getMessage();
             return [];
         }
     }

@@ -20,8 +20,13 @@ class ArrayHelpers
         return $this->findSmallestArray($groups, $sums, $numbersToGroupEqually, 0);
     }
 
-    public function findSmallestArray(array $groups, array $sums, array $numbersToGroupEqually, int $indexOfNumber)
-    {
+    public function findSmallestArray
+    (
+        array $groups,
+        array $sums,
+        array $numbersToGroupEqually,
+        int $indexOfNumber
+    ): array {
         if ($indexOfNumber == count($numbersToGroupEqually)) {
             return $groups;
         }
